@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+        }
+
+        .success-message {
+            display: none;
+            padding: 20px;
+            background: #dff0d8;
+            color: #3c763d;
+            border: 1px solid #d6e9c6;
+            border-radius: 4px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+
+            button {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Registration Form</h2>
+    <form id="registrationForm">
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" name="fullName" required>
+
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" pattern="^\d{10}$" required>
+        <div class="error-message" id="phoneError"></div>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="subCity">Sub City:</label>
+        <select id="subCity" name="subCity" required>
+            <option value="">Select</option>
+            <option value="Bole">Bole</option>
+            <option value="Yeka">Yeka</option>
+            <option value="Arada">Arada</option>
+            <option value="Gulele">Gulele</option>
+            <option value="Lideta">Lideta</option>
+            <option value="Kolfe Keraniyo">Kolfe Keraniyo</option>
+            <option value="Nifas Silk-Lafto">Nifas Silk-Lafto</option>
+            <option value="Addis Ketema">Addis Ketema</option>
+            <option value="Akaky Kaliti">Akaky Kaliti</option>
+            <option value="Kirkos">Kirkos</option>
+            <option value="Lemi Kura">Lemi Kura</option>
+        </select>
+
+        <label for="schoolName">School Name:</label>
+        <input type="text" id="schoolName" name="schoolName" required>
+
+        <label for="schoolEmail">School Email:</label>
+        <input type="email" id="schoolEmail" name="schoolEmail">
+
+        <label for="schoolPhone">School Phone Number:</label>
+        <input type="tel" id="schoolPhone" name="schoolPhone">
+
+        <label for="course">Course That You Teach:</label>
+        <select id="course" name="course" required>
+            <option value="">Select</option>
+            <option value="Amharic">Amharic</option>
+            <option value="A/Oromo">A/Oromo</option>
+            <option value="English">English</option>
+            <option value="Maths">Maths</option>
+            <option value="Physics">Physics</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Biology">Biology</option>
+            <option value="Agriculture-Animal Production">Agriculture (Animal Production)</option>
+            <option value="Agriculture-Natural Resource Management">Agriculture (Natural Resource Management)</option>
+            <option value="ICT-WDD">ICT (WDD)</option>
+            <option value="ICT-CMN">ICT (CMN)</option>
+            <option value="ICT-IT">ICT (IT)</option>
+            <option value="Civics">Civics</option>
+            <option value="Geography">Geography</option>
+            <option value="History">History</option>
+            <option value="Economics">Economics</option>
+            <option value="Woodwork">Woodwork</option>
+            <option value="Construction">Construction</option>
+            <option value="Health Science">Health Science</option>
+            <option value="Communication and Social Science-Journalism">Communication and Social Science (Journalism)</option>
+            <option value="Communication and Social Science-Psychosocial care">Communication and Social Science (Psychosocial care)</option>
+            <option value="Business Science-Accounting">Business Science (Accounting)</option>
+            <option value="Business Science-Marketing">Business Science (Marketing)</option>
+            <option value="Art">Art</option>
+            <option value="G/Science">G/Science</option>
+            <option value="S/Science">S/Science</option>
+            <option value="Sport">Sport</option>
+            <option value="CTE">CTE</option>
+        </select>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <div class="success-message" id="successMessage">
+        Successfully registered! If you want additional information, email us at <a href="yossefbir26@gmail.com">yossefbir26@gmail.com</a> or call us at (+251)-965199622.
+    </div>
+</div>
+
+<script>
+    document.getElementById('registrationForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent the default form submission
+
+        // Validate phone number
+        const phoneNumber = document.getElementById('phoneNumber').value;
+        const phonePattern = /^\d{10}$/;
+
+        if (!phonePattern.test(phoneNumber)) {
+            document.getElementById('phoneError').textContent = "Please enter a valid 10-digit phone number.";
+            return;
+        } else {
+            document.getElementById('phoneError').textContent = "";
+        }
+
+        // Collect form data
+        const newUser = {
+            fullName: document.getElementById('fullName').value,
+            phoneNumber: phoneNumber,
+            email: document.getElementById('email').value,
+            subCity: document.getElementById('subCity').value,
+            schoolName: document.getElementById('schoolName').value,
+            schoolEmail: document.getElementById('schoolEmail').value,
+            schoolPhone: document.getElementById('schoolPhone').value,
+            course: document.getElementById('course').value,
+        };
+
+        // Store user data in local storage
+        const users = JSON.parse(localStorage.getItem('registeredUsers')) || [];
+        users.push(newUser);
+        localStorage.setItem('registeredUsers', JSON.stringify(users));
+
+        // Hide the form and show success message
+        this.style.display = 'none';
+        document.getElementById('successMessage').style.display = 'block';
+    });
+</script>
+
+</body>
+</html>
