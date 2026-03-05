@@ -37,6 +37,31 @@
         .button:hover {
             background-color: #218838;
         }
+        footer {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #eaeaea;
+            border-top: 1px solid #ccc;
+            display: flex;
+            justify-content: space-between; /* Align items on one line with space between */
+            flex-wrap: wrap; /* Allow items to wrap on small screens */
+            text-align: left;
+        }
+        footer p {
+            margin: 0.5rem 0;
+            flex: 1; /* Allow equal spacing among items */
+            display: flex; /* Align icon and text next to each other */
+            align-items: center; /* Center icon vertically */
+        }
+        .social-icons a {
+            margin: 0 7px;
+            text-decoration: none;
+            color: #0077b5; /* LinkedIn color */
+        }
+        .icon {
+            margin-right: 5px;
+            color: #333; /* Icon color */
+        }
     </style>
 </head>
 <body>
@@ -115,6 +140,24 @@
     <p>Please click the button below to register:</p>
     <a href="https://forms.gle/hM2Haoogt4SDM9Fu7" class="button">Go to Registration Form</a>
 </div>
+
+<footer>
+    <p>
+        <i class="fas fa-phone-alt icon"></i>
+        <strong>(+251)965-199-622</strong>
+    </p>
+    <p>
+        <i class="fas fa-envelope icon"></i>
+        <strong>yossefbir26@gmail.com</strong>
+    </p>
+    <p>
+        <i class="fab fa-linkedin icon"></i>
+        : 
+        <span class="social-icons">
+            <a href="www.linkedin.com/in/yossefbirhanu26" target="_blank">LinkedIn</a>
+        </span>
+    </p>
+</footer>
 
 </body>
 </html>
